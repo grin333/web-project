@@ -27,7 +27,7 @@ class Page_2(QMainWindow): # Меню
     def __init__(self, scientist_name):
         super().__init__()
         self.scientist_name = scientist_name
-        uic.loadUi('Меню.ui', self)
+        uic.loadUi('Menyu.ui', self)
         self.btn1.clicked.connect(self.nextpg1)
         self.btn2.clicked.connect(self.nextpg2)
         self.btn3.clicked.connect(self.nextpg3)
@@ -218,12 +218,11 @@ class Page4(QMainWindow): # Новая информация о научном д
             self.cur.execute("""INSERT INTO scientists
                                 (name, inf)
                                 VALUES
-                                ({}, {})""".format(self.scientist_name, self.information))
+                                ("{}", "{}")""".format(self.scientist_name, self.information))
         elif len(res) > 0:
             self.cur.execute("""UPDATE scientists
-                                SET {} = {}
-                                WHERE name = '{}'""".format(self.scientist_name,
-                                                            self.information,
+                                SET inf = "{}"
+                                WHERE name = '{}'""".format(self.information,
                                                             self.scientist_name))
         self.con.commit()
         self.con.close()
