@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>853</width>
+    <height>551</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>60</y>
-      <width>681</width>
-      <height>51</height>
+      <x>130</x>
+      <y>40</y>
+      <width>551</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -31,7 +31,7 @@ color: rgb(85, 85, 255);</string>
      <string>Введите новую информацию о научном деятеле</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lnEd">
+   <widget class="QLineEdit" name="lineEd1">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -71,8 +71,8 @@ background-color: rgb(170, 170, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>26</height>
+     <width>853</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

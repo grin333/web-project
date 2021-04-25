@@ -13,6 +13,7 @@ class Page(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('Начало.ui', self)
+        print(1)
         self.scientist_name = ''
         self.btn.clicked.connect(self.nextpg)
 
@@ -27,7 +28,7 @@ class Page_2(QMainWindow): # Меню
     def __init__(self, scientist_name):
         super().__init__()
         self.scientist_name = scientist_name
-        uic.loadUi('Menyu.ui', self)
+        uic.loadUi('Меню.ui', self)
         self.btn1.clicked.connect(self.nextpg1)
         self.btn2.clicked.connect(self.nextpg2)
         self.btn3.clicked.connect(self.nextpg3)
@@ -139,9 +140,17 @@ class Page2(QMainWindow):  # Биография
         super().__init__()
         self.scientist_name = scientist_name
         uic.loadUi('Button2.ui', self)
+        self.con = sqlite3.connect("science_inf0.sqlite")  # соединение с бд
+        self.cur = self.con.cursor()
 
         try:
             self.scientist_biography = wikipedia.summary(self.scientist_name.capitalize())
+            res = self.cur.execute("""SELECT * FROM scientists
+                                      WHERE 
+                                      name = '{}'""".format(self.scientist_name)).fetchall()
+            if len(res) > 0:
+                self.scientist_biography = self.scientist_biography + ' ' + str(res[0][1])
+            print(self.scientist_biography)
             if self.scientist_biography is False:
                 raise Exception
             else:
@@ -203,8 +212,8 @@ class Page4(QMainWindow): # Новая информация о научном д
         self.btn.clicked.connect(self.ent)
 
     def ent(self):
-        self.information = self.lnEd.text()
-        self.con = sqlite3.connect("science_inf.sqlite") # соединение с бд
+        self.information = self.lineEd1.text()
+        self.con = sqlite3.connect("science_inf0.sqlite") # соединение с бд
         self.cur = self.con.cursor() # курсор
         self.db_creation()
 
@@ -224,6 +233,10 @@ class Page4(QMainWindow): # Новая информация о научном д
                                 SET inf = "{}"
                                 WHERE name = '{}'""".format(self.information,
                                                             self.scientist_name))
+        m = self.cur.execute("""SELECT * FROM scientists
+                                WHERE 
+                                name = '{}'""".format(self.scientist_name)).fetchall()
+        print(m[0][1])
         self.con.commit()
         self.con.close()
         self.end_it = Page4_2()
