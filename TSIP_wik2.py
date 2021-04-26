@@ -113,13 +113,13 @@ class Page1_2(QMainWindow):  # Поиск современника
                         except Exception:
                             pass
                         break
+                print(year, year2)
                 if abs(int(year) - int(year2)) <= 20:
-                    contemporaries.append(' '.join(j.split(',_')))
-
+                    contemporaries.append(' '.join(j.split('_')))
             if len(contemporaries) == 0:
                 raise Exception
             else:
-                self.textEd.setPlainText('; '.join(self.contemporaries))
+                self.textEd.setPlainText('; '.join(contemporaries))
                 self.btn.clicked.connect(self.nextpg1_1)
         except Exception:
             self.btn.clicked.connect(self.nextpg1_2)
@@ -177,7 +177,7 @@ class Page3(QMainWindow):  # Изображения
         uic.loadUi('Button4.ui', self)
 
         try:
-            img_url = wikipedia.page(self.scientist_name).images[0]
+            img_url = wikipedia.page(self.scientist_name).images[1]
             a = requests.get(img_url)
             img = open(self.scientist_name + '_img.jpg', 'wb')
             img.write(a.content)

@@ -6,43 +6,49 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
+    <width>800</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Современники научного деятеля</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="btn">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>360</y>
-      <width>181</width>
-      <height>81</height>
+      <x>290</x>
+      <y>180</y>
+      <width>221</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
+     <string notr="true">font: 11pt &quot;MS Shell Dlg 2&quot;;
 background-color: rgb(170, 170, 255);</string>
     </property>
     <property name="text">
-     <string>Продолжить</string>
+     <string>Вернутся в начало</string>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEd">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>80</y>
-      <width>661</width>
-      <height>241</height>
+      <x>210</x>
+      <y>70</y>
+      <width>391</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(170, 170, 255);</string>
+color: rgb(85, 85, 255);</string>
+    </property>
+    <property name="text">
+     <string>Спасибо, информация обновлена!</string>
     </property>
    </widget>
   </widget>
@@ -51,8 +57,8 @@ background-color: rgb(170, 170, 255);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>900</width>
-     <height>26</height>
+     <width>800</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
